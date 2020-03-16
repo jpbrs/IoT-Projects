@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>IoT WAN</title>
+     {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}       
+     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+
+    <style>
+         table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 15px;
+        }
+        th {
+          text-align: left;
+        }
+        table {
+          border-spacing: 5px;
+        }
+
+        .box {background:gray;border:3px solid black;float:left;padding: 15px;border-collapse: separate; padding-bottom: 20px }
+
+
+
+
+    </style>
+</head>
+ <body>
+    <center><h1>Devices Ativos</h1></center>
+  <table style="width:100%" id="table1">
+  <tr>
+    <th style="background:#5F9EA0; color:white">AppUI</th>
+    <th style="background:#5F9EA0; color:white">devUI</th>
+    <th style="background:#5F9EA0; color:white" >AppKey</th>
+</tr>
+
+<tr id="0X0X">
+<td>0X0X</td>
+<td>iotwan01
+</td>
+<td>iotwanprojectkey</td>
+</tr>
+  </table>
+ <div class="box" style="margin-left:20em; margin-top:2.5em">
+ <form method="POST" action="/adicionar">
+                <p><label>AppUI(4 Bytes):</label> <input class="form-control" type="text" name="application" required></p>
+                <p><label>devUI(8 Bytes):</label> <input class="form-control" type="text" name="device" required></p>
+                <p><label>Appkey(16 Bytes):</label> <input class="form-control" type="text" name="appkey" required></p>
+                
+                <center><p><button class="btn btn-primary" type="submit">Adicionar Nova Aplicação</button></p></center>
+        </form>
+ </div>
+  <div class="box" style="margin-left:20em; margin-top:4.5em">
+  <form method="POST" action="/remover">
+                <p><label>Aplicação</label> <input class="form-control" type="text" name="application" required></p>
+                <center><p><button class="btn btn-primary" type="submit">Remover Aplicação Existente</button></p></center>
+        </form>
+ </div>
+
+ <div class="box" style="margin-left:20em; margin-top:4.5em">
+  <form method="POST" action="/data">
+                <p><label>devUI</label> <input class="form-control" type="text" name="device" required></p>
+                <p><label>appUI</label> <input class="form-control" type="text" name="aUI" required></p>
+                <center><p><button class="btn btn-primary" type="submit">Ver últimos dados do dispositivo</button></p></center>
+  </form>
+ </div>
+
+
+ </body>
+  </html>

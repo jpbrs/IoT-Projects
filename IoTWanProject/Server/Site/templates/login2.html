@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>IoT WAN</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+
+ </head>
+ <body>
+         {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list_unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+     <div class="container">
+         <div class="box">
+                <h1><center>Login</center></h1>
+                <form method="POST" action="/autenticar">
+                <center><p><label>Username:</label> <input class="form-control" type="text" name="username" required></p></center>
+                <center><p><label>Password:</label> <input class="form-control" type="password" name="password" required></p></center>
+                <center><p><button class="btn btn-primary" type="submit">Submit</button></p></center>
+        </form>
+         </div>
+     </div>
+ </body>
+ </html>

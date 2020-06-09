@@ -1,0 +1,6 @@
+{
+  "test_basic.py::test_fails": true,
+  "test_basic.py::test_long_lines": true,
+  "test_basic.py::test_long_list": true,
+  "test_basic.py::test_lost_list": true
+}
